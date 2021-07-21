@@ -2,26 +2,26 @@
 
 int main()
 {
-  // 构造耐克鞋的工厂对象
-  ConcreteFactory<Shoes, NiKeShoes> nikeFactory;
+  // 构造kinematic的工厂对象
+  ConcreteFactory<Planner, KinematicPlanner> kinematicFactory;
   // 创建耐克鞋对象
-  Shoes *pNiKeShoes = nikeFactory.CreateProduct();
-  // 打印耐克鞋广告语
-  pNiKeShoes->Show();
+  Planner *path_planner = kinematicFactory.CreateProduct();
+  // path planner printer
+  path_planner->Show();
 
   // 构造优衣库衣服的工厂对象
-  ConcreteFactory<Clothe, UniqloClothe> uniqloFactory;
+  ConcreteFactory<Planner, Optimizer> optimizerFactory;
   // 创建优衣库衣服对象
-  Clothe *pUniqloClothe = uniqloFactory.CreateProduct();
+  path_planner = optimizerFactory.CreateProduct();
   // 打印优衣库广告语
-  pUniqloClothe->Show();
+  path_planner->Show();
 
   // 释放资源
-  delete pNiKeShoes;
-  pNiKeShoes = NULL;
+  delete path_planner;
+  path_planner = NULL;
 
-  delete pUniqloClothe;
-  pUniqloClothe = NULL;
+  delete path_planner;
+  path_planner = NULL;
 
   return 0;
 }

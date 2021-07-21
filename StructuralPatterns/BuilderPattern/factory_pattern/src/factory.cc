@@ -1,21 +1,34 @@
 // Copyright (c) 2021 Trunk Inc. All rights reserved.
 
 #include "factory.h"
-// 基类 鞋子
-class Shoes
+// 基类 规划器
+class Planner
 {
 public:
   virtual void Show() = 0;
-  virtual ~Shoes() {}
+  virtual ~Planner() {}
 };
 
-// 耐克鞋子
-class NiKeShoes : public Shoes
+class PathPlanner : public Planner{
+  void Show()
+  {
+    std::cout << "Path planner" << std::endl;
+  }
+};
+
+class SpeedPlanner : public Planner{
+  void Show()
+  {
+    std::cout << "Speed planner" << std::endl;
+  }
+};
+
+class KinematicPlanner : public Planner
 {
 public:
   void Show()
   {
-    std::cout << "我是耐克球鞋，我的广告语：Just do it" << std::endl;
+    std::cout << "Path planner: Kinematic" << std::endl;
   }
 };
 
@@ -28,11 +41,11 @@ public:
 };
 
 // 优衣库衣服
-class UniqloClothe : public Clothe
+class Optimizer : public Planner
 {
 public:
   void Show()
   {
-    std::cout << "我是优衣库衣服，我的广告语：I am Uniqlo" << std::endl;
+    std::cout << "Path planner: Kinematic" << std::endl;
   }
 };
