@@ -3,14 +3,14 @@
 int main()
 {
   // 构造kinematic的工厂对象
-  ConcreteFactory<Planner, KinematicPlanner> kinematicFactory;
+  ConcreteFactory<SpeedPlanner, KinematicPathPlanner> kinematicFactory;
   // 创建耐克鞋对象
-  Planner *path_planner = kinematicFactory.CreateProduct();
+  SpeedPlanner *path_planner = kinematicFactory.CreateProduct();
   // path planner printer
   path_planner->Show();
 
   // 构造优衣库衣服的工厂对象
-  ConcreteFactory<Planner, Optimizer> optimizerFactory;
+  ConcreteFactory<SpeedPlanner, OptimizerPathPlanner> optimizerFactory;
   // 创建优衣库衣服对象
   path_planner = optimizerFactory.CreateProduct();
   // 打印优衣库广告语

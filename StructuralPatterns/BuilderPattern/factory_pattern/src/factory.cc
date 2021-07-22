@@ -10,29 +10,30 @@ public:
 };
 
 class PathPlanner : public Planner{
+public:
   void Show()
   {
     std::cout << "Path planner" << std::endl;
   }
 };
 
-class SpeedPlanner : public Planner{
+class SpeedPlanner : public PathPlanner{
+public:
   void Show()
   {
     std::cout << "Speed planner" << std::endl;
   }
 };
 
-class KinematicPlanner : public Planner
+class KinematicPathPlanner : public SpeedPlanner
 {
 public:
-  void Show()
+  void Show() override
   {
     std::cout << "Path planner: Kinematic" << std::endl;
   }
 };
 
-// 基类 衣服
 class Clothe
 {
 public:
@@ -40,12 +41,12 @@ public:
   virtual ~Clothe() {}
 };
 
-// 优衣库衣服
-class Optimizer : public Planner
+
+class OptimizerPathPlanner : public SpeedPlanner
 {
 public:
   void Show()
   {
-    std::cout << "Path planner: Kinematic" << std::endl;
+    std::cout << "Path planner: Optimizer" << std::endl;
   }
 };
